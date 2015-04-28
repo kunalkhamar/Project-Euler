@@ -8,7 +8,7 @@
 #include <stdio.h>
 #include <stdbool.h>
 
- #define MAX_DIGITS 52
+#define MAX_DIGITS 52
 
 // represent an integer as a series of ASCII digits '0'-'9'
 struct sint {
@@ -31,7 +31,6 @@ struct sint sadd(const struct sint *a, const struct sint *b);
 
 ////////////////////////// Implementation ////////////////////////////
 
-const bool DEBUG = false;
 
 void strim(struct sint *a) {
   int len = strlen(a->digits);
@@ -58,11 +57,6 @@ struct sint sadd(const struct sint *a, const struct sint *b) {
   for (int i = 0; i < MAX_DIGITS; i++)
     r.digits[i] = '0';
   r.digits[MAX_DIGITS] = '\0';
-  if (DEBUG) {
-    printf("sadd:a: %s\n", acp.digits);
-    printf("sadd:b: %s\n", bcp.digits);
-    printf("sadd:r: %s\n", r.digits);
-  }
   
   int lena = strlen(acp.digits);
   int lenb = strlen(bcp.digits);
@@ -79,11 +73,7 @@ struct sint sadd(const struct sint *a, const struct sint *b) {
     r.digits[MAX_DIGITS - 1 - i] = '0' + cur;
   }
   
-  if (DEBUG)
-    printf("sadd:rtrim:radded: %s\n", r.digits);
   strim(&r);
-  if (DEBUG)
-    printf("sadd:rtrim: %s\n", r.digits);
   return r;
 }
 
@@ -96,13 +86,9 @@ int main(void) {
   for (int i = 0; i < 100; i++) {
     struct sint in;
     fscanf(fptr, "%s", in.digits);
-    if (DEBUG)
-      printf("%s  %d\n", in.digits, i + 1);
     sum = sadd(&sum, &in);
   }
-  
-  if (DEBUG)
-    printf("sum: %s\n", sum.digits);
+
   sum.digits[10] = '\0';
   printf("%s\n", sum.digits);
 }
