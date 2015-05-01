@@ -13,6 +13,8 @@ import java.math.BigInteger;
 import java.util.HashMap;
 import java.util.Map;
 
+import algs.PrimeFact;
+
 public class p020 {
 
 	public static void main(String[] args) {
@@ -21,7 +23,7 @@ public class p020 {
 		
 		Map<Integer, Integer> pf = new HashMap<>();
 		for (int i = 2; i <= N; i++) {
-			Map<Integer, Integer> pf_i = NumberTheory.getPrimeFactorization(i);
+			Map<Integer, Integer> pf_i = new PrimeFact(i).getPrimeFactorization();
 			for (Map.Entry<Integer, Integer> e : pf_i.entrySet()) {
 				if (pf.containsKey(e.getKey())) {
 					pf.put(e.getKey(), e.getValue() + pf.get(e.getKey()));

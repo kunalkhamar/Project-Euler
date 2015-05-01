@@ -7,7 +7,7 @@ public class p008 {
 	public static void main(String[] args) throws FileNotFoundException {
 		int[] bigNum = new int[1000];
 
-		Scanner in = new Scanner(new File("p008.txt"));
+		Scanner in = new Scanner(new File("./input-files/p008.txt"));
 		int index = 0;
 		while (in.hasNextLine()) {
 			String input = in.nextLine().trim();

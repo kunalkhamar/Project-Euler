@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class p013 {
 
 	public static void main(String[] args) throws FileNotFoundException {
-		Scanner in = new Scanner(new File("p013.txt"));
+		Scanner in = new Scanner(new File("./input-files/p013.txt"));
 		BigInteger[] nums = new BigInteger[100];
 		BigInteger sum = BigInteger.ZERO;
 		for (int i = 0; i < 100; i++) {

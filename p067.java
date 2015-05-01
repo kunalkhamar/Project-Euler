@@ -20,7 +20,7 @@ public class p067 {
 		dp = new int[R][];
 		tri = new int[R][];
 
-		Scanner in = new Scanner(new File("p067_triangle.txt"));
+		Scanner in = new Scanner(new File("./input-files/p067_triangle.txt"));
 		for (int i = 0; i < R; i++) {
 			String[] line = in.nextLine().trim().split(" ");
 			tri[i] = getIntArray(line);
