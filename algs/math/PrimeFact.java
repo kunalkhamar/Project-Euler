@@ -84,7 +84,7 @@ public class PrimeFact {
 		number = prod;
 		return prod;
 	}
-
+	
 	public PrimeFact multiplyPF(PrimeFact other) {
 		Map<Integer, Integer> prod = new TreeMap<>();
 		Set<Integer> primes = new HashSet<>();

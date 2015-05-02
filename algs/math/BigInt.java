@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.Stack;
 
 public class BigInt {
-	ArrayList<Integer> digits;
+	private ArrayList<Integer> digits;
 
 	public static final BigInt ZERO = new BigInt("0");
 	public static final BigInt ONE = new BigInt("1");
@@ -45,6 +45,10 @@ public class BigInt {
 		if (index < 0 || index >= digits.size())
 			return -1;
 		return digits.get(index);
+	}
+	
+	public ArrayList<Integer> getDigits() {
+		return digits;
 	}
 
 	public boolean setDigit(int index, int element) {
