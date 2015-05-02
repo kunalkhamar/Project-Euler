@@ -1,9 +1,11 @@
 /**
  * Some number theoretic data structures and algorithms
  * that come up often
+ * 
+ * @author Kunal
  */
 
-package algs;
+package algs.math;
 
 public class NumberTheory {
 	
@@ -12,13 +14,16 @@ public class NumberTheory {
 		return (b == 0 ? a : gcd(b, a % b));
 	}
 	
+	// compute n "choose" k
 	public static long combinations(int n, int k) {
-		if (k < n - k)
-			k = n - k;
+		k = Math.max(k, n - k);
+		
+		// n * (n-1) * ... * (n-k+1)
 		PrimeFact numerator = new PrimeFact(1);
 		for (int i = n; i > k; i--)
 			numerator = numerator.multiplyPF(new PrimeFact(i));
 		
+		// (n-k)!
 		PrimeFact denominator = new PrimeFact(1);
 		for (int i = 1; i <= n - k; i++)
 			denominator = denominator.multiplyPF(new PrimeFact(i));
@@ -27,4 +32,5 @@ public class NumberTheory {
 		return answer.getNumber();
 	}
 
+	// TODO sieve of Eratosthenes, permutations, primality testing
 }

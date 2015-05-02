@@ -13,7 +13,7 @@ import java.math.BigInteger;
 import java.util.HashMap;
 import java.util.Map;
 
-import algs.PrimeFact;
+import algs.math.PrimeFact;
 
 public class p020 {
 

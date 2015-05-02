@@ -2,10 +2,11 @@
  * Data structure for non-negative integers with
  * arbitrary number of digits
  * Numbers represented with an ArrayList
+ * 
  * @author Kunal
  */
 
-package algs;
+package algs.math;
 
 import java.util.ArrayList;
 import java.util.Stack;
@@ -13,8 +14,8 @@ import java.util.Stack;
 public class BigInt {
 	ArrayList<Integer> digits;
 
-	static final BigInt ZERO = new BigInt("0");
-	static final BigInt ONE = new BigInt("1");
+	public static final BigInt ZERO = new BigInt("0");
+	public static final BigInt ONE = new BigInt("1");
 
 	public BigInt() {
 		this(ZERO);
@@ -134,6 +135,7 @@ public class BigInt {
 		return new String(arr);
 	}
 
+	// sample client
 	public static void main(String[] args) {
 		BigInt a = BigInt.ZERO;
 		BigInt b = new BigInt(1);

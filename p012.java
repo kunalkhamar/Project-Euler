@@ -21,7 +21,7 @@
 
  */
 
-import algs.PrimeFact;
+import algs.math.PrimeFact;
 
 public class p012 {
 

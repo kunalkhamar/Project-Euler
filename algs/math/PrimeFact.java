@@ -1,10 +1,11 @@
 /**
  * Prime factorization and arithmetic operations
  * in this representation
+ * 
  * @author Kunal
  */
 
-package algs;
+package algs.math;
 
 import java.util.HashSet;
 import java.util.Map;
@@ -16,8 +17,9 @@ public class PrimeFact {
 	// a prime factorization (p.f.) is of form
 	// { (p_1 => count(p_1)), (p_2 => count(p_2)), ... , (p_k => count(p_k)) }
 	// where p_1 ... p_k are the prime factors of n
-	// 1 and n itself do not appear in the p.f.
-	// requires: largest prime factor must be an integer
+	// n itself does not appear in the p.f.
+	// 1 may or may not appear in the p.f.
+	// requires: largest prime factor must be smaller than Integer.MAX_VALUE
 	Map<Integer, Integer> fac;
 	long number = -1;
 
@@ -83,7 +85,7 @@ public class PrimeFact {
 		return prod;
 	}
 
-	PrimeFact multiplyPF(PrimeFact other) {
+	public PrimeFact multiplyPF(PrimeFact other) {
 		Map<Integer, Integer> prod = new TreeMap<>();
 		Set<Integer> primes = new HashSet<>();
 		for (Integer i : fac.keySet())
@@ -106,7 +108,7 @@ public class PrimeFact {
 		return new PrimeFact(prod);
 	}
 
-	PrimeFact dividePF(PrimeFact divisor) {
+	public PrimeFact dividePF(PrimeFact divisor) {
 		Map<Integer, Integer> negated = new TreeMap<>();
 		for (Map.Entry<Integer, Integer> e : divisor.fac.entrySet()) {
 			negated.put(e.getKey(), -e.getValue());
