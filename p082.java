@@ -32,8 +32,7 @@ public class p082 {
 					try {
 						int ito = i + dirs[k][0];
 						int jto = j + dirs[k][1];
-						DirectedEdge e = new DirectedEdge(i * N + j, ito * N
-								+ jto, input[ito][jto]);
+						DirectedEdge e = new DirectedEdge(i * N + j, ito * N + jto, input[ito][jto]);
 						graph.addEdge(e);
 					} catch (ArrayIndexOutOfBoundsException e) {}
 				}
