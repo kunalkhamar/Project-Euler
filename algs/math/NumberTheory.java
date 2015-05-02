@@ -1,5 +1,5 @@
 /**
- * Some number theoretic data structures and algorithms
+ * Some number theoretic functions
  * that come up often
  * 
  * @author Kunal

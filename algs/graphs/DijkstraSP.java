@@ -9,6 +9,8 @@
 
 package algs.graphs;
 
+import algs.queues.IndexMinPQ;
+
 public class DijkstraSP {
 	private DirectedEdge[] edgeTo;
 	private int[] distTo;

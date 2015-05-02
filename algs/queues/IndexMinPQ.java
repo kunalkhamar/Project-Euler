@@ -14,7 +14,7 @@
  *  @author Kunal
  */
 
-package algs.graphs;
+package algs.queues;
 
 public class IndexMinPQ<Key extends Comparable<Key>> {
 	private int NMAX;
