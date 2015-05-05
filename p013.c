@@ -81,7 +81,7 @@ struct sint sadd(const struct sint *a, const struct sint *b) {
 int main(void) {
   struct sint sum = { "0" };
   FILE *fptr;
-  fptr = fopen("p013.txt", "r");
+  fptr = fopen("./input-files/p013.txt", "r");
 
   for (int i = 0; i < 100; i++) {
     struct sint in;
