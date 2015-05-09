@@ -5,33 +5,35 @@ import java.util.Set;
 
 public class Sudoku {
 	private char[][] puzzle;
-	private char[][] solved;
+	private char[][] solution;
+	private boolean solved;
 	private final int N = 9;
 
 	public Sudoku(char[][] initial) {
 		assert (initial.length == N);
 		assert (initial[0].length == N);
 
+		solved = false;
 		puzzle = new char[N][N];
-		solved = new char[N][N];
+		solution = new char[N][N];
 		for (int i = 0; i < N; i++) {
 			for (int j = 0; j < N; j++) {
 				puzzle[i][j] = initial[i][j];
-				solved[i][j] = '0';
+				solution[i][j] = '0';
 			}
 		}
 	}
 
 	// Backtracking search
 	public void solve() {
-		if (isBoardComplete(solved))
+		if (solved)
 			return;
 
-		boolean found = false;
-		for (int i = 0; i < N && !found; i++) {
-			for (int j = 0; j < N && !found; j++) {
+		boolean foundEmpty = false;
+		for (int i = 0; i < N && !foundEmpty; i++) {
+			for (int j = 0; j < N && !foundEmpty; j++) {
 				if (puzzle[i][j] == '0') {
-					found = true;
+					foundEmpty = true;
 
 					Set<Character> usedUp = new HashSet<>();
 					usedUp.addAll(getRowItems(puzzle, i));
@@ -50,23 +52,14 @@ public class Sudoku {
 			}
 		}
 
-		if (isBoardComplete(puzzle)) {
+		if (!foundEmpty) {
+			solved = true;
 			for (int i = 0; i < N; i++) {
 				for (int j = 0; j < N; j++) {
-					solved[i][j] = puzzle[i][j];
+					solution[i][j] = puzzle[i][j];
 				}
 			}
 		}
-	}
-
-	private boolean isBoardComplete(char[][] b) {
-		for (int i = 0; i < N; i++) {
-			for (int j = 0; j < N; j++) {
-				if (!(b[i][j] >= '1' && b[i][j] <= '9'))
-					return false;
-			}
-		}
-		return true;
 	}
 
 	private Set<Character> getRowItems(char[][] board, int r) {
@@ -104,7 +97,7 @@ public class Sudoku {
 	}
 
 	public void printSolution() {
-		printBoard(solved);
+		printBoard(solution);
 	}
 
 	private void printBoard(char[][] b) {
@@ -118,9 +111,10 @@ public class Sudoku {
 	}
 
 	public char[][] getSolution() {
-		return solved;
+		return solution;
 	}
 	
+	// sample client
 	public static void main(String[] args) {
 		char[] str = "000000000".toCharArray();
 		char[][] arr = new char[][]{ str,str,str,str,str,str,str,str,str };
