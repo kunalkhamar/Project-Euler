@@ -15,7 +15,7 @@ public class p009 {
 		for (int a = 1; a <= 999 && !found; a++) {
 			for (int b = a + 1; b <= 1000 && !found; b++) {
 				int c = 1000 - a - b;
-				if (c < 1) continue;
+				if (c < b) continue;
 				
 				if (a * a + b * b == c * c) {
 					System.out.println(a * b * c);
